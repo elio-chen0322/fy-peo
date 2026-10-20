@@ -1,0 +1,4 @@
+project_id = "fy-peo"
+[functions.peo-api]
+verify_jwt = false
+entrypoint = "./functions/peo-api/index.js"

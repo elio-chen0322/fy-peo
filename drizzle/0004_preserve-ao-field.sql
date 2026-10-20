@@ -1,0 +1,1 @@
+ALTER TABLE `demands` ADD `ao` text DEFAULT '' NOT NULL;

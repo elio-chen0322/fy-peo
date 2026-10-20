@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: fy-peo
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build:render
+    startCommand: pnpm start:render
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: PGHOST
+        value: aws-1-ca-central-1.pooler.supabase.com
+      - key: PGUSER
+        value: postgres.ncisftxvcuwubfufsjbr
+      - key: PGDATABASE
+        value: postgres
+      - key: PGPORT
+        value: "5432"
+      - key: PGPASSWORD
+        sync: false
+      - key: PUBLIC_DATA_OWNER
+        value: firefly-public
+      - key: SUPABASE_URL
+        value: https://ncisftxvcuwubfufsjbr.supabase.co
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: TEAM_EMAILS
+        sync: false

@@ -1,0 +1,26 @@
+{
+  "name": "firefly-feedback",
+  "account_id": "50ac8a1a77f735ed1858b572387a8cf1",
+  "main": "vinext/server/fetch-handler",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "vars": {
+    "DEPLOYMENT_MODE": "public-readonly",
+    "PUBLIC_DATA_OWNER": "firefly-public"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "firefly-feedback",
+      "database_id": "7c0af020-3228-43f2-9737-e966b313b8ae",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "r2_buckets": [],
+  "observability": {
+    "enabled": true
+  }
+}

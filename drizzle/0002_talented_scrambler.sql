@@ -1,0 +1,1 @@
+ALTER TABLE `themes` ADD `feature_id` text DEFAULT '' NOT NULL;
