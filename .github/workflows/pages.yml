@@ -1,6 +1,8 @@
 name: Publish PEO test site
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -16,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - run: corepack enable
+      - run: npm install --global pnpm@11.25.0
       - run: pnpm install --frozen-lockfile
       - run: pnpm build:edge && node tests/edge.mjs
       - run: pnpm build:pages
