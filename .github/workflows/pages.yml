@@ -36,3 +36,9 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify protected API
+        run: |
+          status=$(curl --silent --show-error --max-time 60 --output /tmp/peo-health --write-out '%{http_code}' https://ncisftxvcuwubfufsjbr.supabase.co/functions/v1/peo-api/health)
+          test "$status" = 401
+          status=$(curl --silent --show-error --max-time 60 --output /dev/null --write-out '%{http_code}' -X OPTIONS -H 'Origin: https://elio-chen0322.github.io' -H 'Access-Control-Request-Method: GET' https://ncisftxvcuwubfufsjbr.supabase.co/functions/v1/peo-api/health)
+          test "$status" = 204
